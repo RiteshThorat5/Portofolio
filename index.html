@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorat Ritesh Shivaji - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 30, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #64ffda;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #64ffda, #00bcd4);
+            transition: width 0.3s ease;
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        /* Home Section */
+        #home1 {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="0.5" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .info {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+
+        .info h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: slideInDown 1s ease;
+            background: linear-gradient(45deg, #fff, #64ffda);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .info h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            animation: slideInUp 1s ease 0.2s both;
+            letter-spacing: 2px;
+        }
+
+        .info h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            animation: fadeIn 1s ease 0.4s both;
+            opacity: 0.9;
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* About Section */
+        #about1 {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .about {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .left h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .left h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .left p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .right {
+            display: flex;
+            justify-content: center;
+        }
+
+        .right img {
+            width: 300px;
+            margin-top: 200px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .right img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Skills Section */
+        #skills1 {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+        }
+
+        .skills {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .left1 h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .left1 h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #64ffda, #00bcd4);
+            border-radius: 2px;
+        }
+
+        .left1 p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        .bar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card1, .card2 {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .card1:hover, .card2:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .card1 img, .card2 img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #64ffda, #00bcd4);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .card1 span, .card2 span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .card1 h1, .card2 h1 {
+            font-size: 1.5rem;
+            color: #64ffda;
+        }
+
+        .right1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .right1 img {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .right1 img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        #contact1 {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h1 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .contact h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #64ffda, #00bcd4);
+            border-radius: 2px;
+        }
+
+        .form {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 3rem;
+        }
+
+        .form1 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form1 label {
+            text-align: left;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form1 input {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form1 input:focus {
+            outline: none;
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        #btn {
+            background: linear-gradient(45deg, #64ffda, #00bcd4);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .icons a {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .icons a:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .icons img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about, .skills {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .info h1 {
+                font-size: 2.5rem;
+            }
+
+            .info h2 {
+                font-size: 1.5rem;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
+            .navbar a {
+                margin: 0 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .right img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section id="home1">
+            <nav class="navbar">
+                <a href="#home1">Home</a>
+                <a href="#about1">About Me</a>
+                <a href="#skills1">Skills</a>
+                <a href="#contact1">Contact</a>
+            </nav>
+            <div class="info">
+                <h1>PORTFOLIO</h1>
+                <h2>WEB DEVELOPER</h2>
+                <h3>Ritesh Shivaji Thorat</h3>
+            </div>
+        </section>
+
+        <section id="about1">
+            <div class="about fade-in">
+                <div class="left">
+                    <h1>I'm Ritesh</h1>
+                    <p>Welcome to my portfolio! I'm a passionate web developer with a keen eye for creating beautiful, functional, and user-friendly websites. With expertise in modern web technologies, I bring ideas to life through clean code and innovative design. I'm constantly learning and evolving with the latest trends in web development to deliver exceptional digital experiences. My goal is to create websites that not only look stunning but also perform flawlessly across all devices and platforms.</p>
+                </div>
+                <div class="right">
+                    <img src="image/Profile.jpg" alt="Ritesh Profile">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills1">
+            <div class="skills fade-in">
+                <div class="left1">
+                    <h1>Professional Skills</h1>
+                    <p>I specialize in front-end development with a strong foundation in HTML, CSS, and JavaScript. My passion for creating responsive, accessible, and performant web applications drives me to continuously improve and learn new technologies. I focus on writing clean, maintainable code while ensuring optimal user experience across all platforms.</p>
+                    <div class="bar">
+                        <div class="card1">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M12 17.56l4.07-1.13.55-6.1H9.38L9.2 8.3h7.6l.2-2.27H6l.6 6.77h7.84l-.28 3.35L12 17.56z'/%3E%3C/svg%3E" alt="HTML5">
+                            <span>HTML 5</span>
+                            <h1>95%</h1>
+                        </div>
+                        <div class="card2">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l-.65 3.34h13.59L17.5 8.5H3.92l-.66 3.33h13.59l-.76 3.81-5.48 1.81-5.82-1.81.39-1.96H2.85l-.79 4.02 8.94 2.94 9.06-2.94L21 3z'/%3E%3C/svg%3E" alt="CSS">
+                            <span>CSS</span>
+                            <h1>90%</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="right1">
+                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop" alt="Coding">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact1">
+            <div class="contact fade-in">
+                <h1>Contact Me</h1>
+                <div class="form">
+                    <form name="contactForm">
+                        <div class="form1">
+                            <label>Name:</label>
+                            <input type="text" name="name" required>
+                            
+                            <label>Email:</label>
+                            <input type="email" name="email" required>
+                            
+                            <label>Message:</label>
+                            <input type="text" name="message" required style="min-height: 100px;">
+                            
+                            <button type="submit" id="btn">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="icons">
+                    <a href="https://www.instagram.com/Riteshthorat5" target="_blank">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E" alt="Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/ritesh-thorat-6453b0376/" target="_blank">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z'/%3E%3C/svg%3E" alt="LinkedIn">
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488'/%3E%3C/svg%3E" alt="Contact">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('form[name="contactForm"]').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(10, 10, 30, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(10, 10, 30, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
